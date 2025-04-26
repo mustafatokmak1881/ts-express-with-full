@@ -2,9 +2,9 @@
   "name": "ts-express-with-full",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/src/app.js",
   "scripts": {
-    "start": "tsc && node app.js",
+    "start": "tsc && node .",
     "test": "mocha"
   },
   "repository": {

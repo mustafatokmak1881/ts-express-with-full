@@ -7,10 +7,16 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+// ROUTES
+import homeRoutes from '../routes/home.routes';
+
+// MIDDLEWARES
+app.use('/', homeRoutes);
+
+// LISTEN
 app.listen(PORT, () => {
     console.warn(`Server started on ${PORT}`);
 });
 
-
-exports = app;
+export default app;
 
