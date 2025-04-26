@@ -7,12 +7,16 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+// MIDDLEWARE FILES
+import loggerMiddleware from './middlewares/logger.middleware';
+
 // ROUTES
 import homeRoutes from './routes/home.routes';
 import authRoutes from './routes/auth.routes';
 import userRoutes from './routes/user/user.routes';
 
 // MIDDLEWARES
+app.use(loggerMiddleware);
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
