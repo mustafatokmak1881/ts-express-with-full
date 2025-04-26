@@ -43,10 +43,12 @@ const express_1 = __importDefault(require("express"));
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = (0, express_1.default)();
-// Route Files
+// ROUTES
 const home_routes_1 = __importDefault(require("../routes/home.routes"));
+// MIDDLEWARES
 app.use('/', home_routes_1.default);
+// LISTEN
 app.listen(PORT, () => {
     console.warn(`Server started on ${PORT}`);
 });
-exports = app;
+exports.default = app;
