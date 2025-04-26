@@ -1,0 +1,27 @@
+{
+  "name": "ts-express-with-full",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustafatokmak1881/ts-express-with-full.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mustafatokmak1881/ts-express-with-full/issues"
+  },
+  "homepage": "https://github.com/mustafatokmak1881/ts-express-with-full#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1"
+  }
+}
