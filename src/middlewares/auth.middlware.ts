@@ -16,7 +16,7 @@ const isAuthenticated = (req: Request, res: Response, next: NextFunction): any =
         jwt.verify(token, secretKey);
         next();
     } catch (error) {
-        res.status(401).send('Unauthorization Error !');
+        res.status(401).send('INVALID_TOKEN');
     }
 }
 
