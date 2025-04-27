@@ -5,7 +5,8 @@
   "main": "./dist/src/app.js",
   "scripts": {
     "start": "tsc && node .",
-    "test": "mocha -r ts-node/register --watch --watch-files test --extension ts"
+    "test": "mocha -r ts-node/register test/**/*.ts",
+    "test:watch": "mocha -r ts-node/register --watch --watch-files test --extension ts"
   },
   "repository": {
     "type": "git",
