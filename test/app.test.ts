@@ -9,9 +9,16 @@ const expect = chai.expect;
 
 let token: string;
 
+
+interface RequestBody {
+  status: boolean,
+  token: string,
+  msg: string
+}
+
 describe('API Test Results:', () => {
-  describe('GET /', () => {
-    it('You should see 200 status code', () => {
+  describe('Basic API', () => {
+    it('Main Page', () => {
       chai.request(app)
         .get('/')
         .end((err: any, res: any) => {
@@ -19,10 +26,8 @@ describe('API Test Results:', () => {
           expect(res.text).to.equal('Welcome to Home Page');
         });
     });
-  });
 
-  describe('GET /404', () => {
-    it('You should see 404 status code', () => {
+    it('404 Page', () => {
       chai.request(app)
         .get('/404')
         .end((err, res) => {
@@ -33,7 +38,7 @@ describe('API Test Results:', () => {
   });
 
   describe('POST /auth/login', () => {
-    it('You should see "Access granted" message', () => {
+    it('success login', () => {
       const testUser = {
         username: "admin",
         password: "admin123"
@@ -43,19 +48,20 @@ describe('API Test Results:', () => {
         .post('/auth/login')
         .send(testUser)
         .end((err, res) => {
-          token = res.body.token;
+          const body: RequestBody = res.body;
+          token = body.token;
 
           expect(res).to.have.status(200);
-          expect(res.body).to.have.an('object')
-          expect(res.body).to.have.property('status', true);
+          expect(body).to.have.an('object')
+          expect(body).to.have.property('status', true);
           expect(token).to.have.a('string');
-          expect(res.body).to.have.property('msg', 'Access Granted !')
+          expect(body).to.have.property('msg', 'Access Granted !')
         });
     });
   });
 
   describe('GET /user', () => {
-    it('You should see "invalid token" error', () => {
+    it('invalid token', () => {
       chai.request(app)
         .get('/user')
         .end((err, res) => {
@@ -66,7 +72,7 @@ describe('API Test Results:', () => {
   });
 
   describe('GET /user', () => {
-    it('You should see user page as successfully', () => {
+    it('Main Page', () => {
       chai.request(app)
         .get('/user')
         .set('Authorization', token)
