@@ -8,7 +8,7 @@ import IUser from '../interfaces/IUser.interface';
 const secretKey: string | any = process.env.SECRET_KEY;
 
 const isAuthenticated = (req: Request, res: Response, next: NextFunction): any => {
-    const token: string | any = req.headers['authorization'];
+    const token = req.headers['authorization'];
 
     if (!token) { return res.status(401).send('INVALID_TOKEN') }
 
